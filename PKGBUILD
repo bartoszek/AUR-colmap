@@ -13,7 +13,7 @@ _fragment=${FRAGMENT:-#tag=3.11.1}
 _name=colmap
 #fragment="#commit=5bea89263bf5f3ed623b8e6e6a5f022a0ed9c1de"
 pkgname=${_name}
-pkgver=3.11.1
+pkgver=3.12.3
 pkgrel=1
 pkgdesc="General-purpose Structure-from-Motion (SfM) and Multi-View Stereo (MVS) pipeline with a graphical and command-line interface."
 arch=('i686' 'x86_64')
