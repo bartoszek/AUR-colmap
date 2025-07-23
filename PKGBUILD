@@ -21,7 +21,7 @@ url="https://colmap.github.io/"
 license=('GPL')
 groups=()
 depends=('cgal' 'ceres-solver' 'gflags' 'suitesparse' 'freeglut' 'glew' 'google-glog' 'freeimage' 'libjpeg' 'boost-libs' 'qt5-base' 'metis' 'flann')
-makedepends=('boost' 'cmake' 'eigen' 'git' 'ninja' 'python-sphinx')
+makedepends=('gcc14' 'boost' 'cmake' 'eigen' 'git' 'ninja' 'python-sphinx')
 if [ "$_BUILD_CUDA" == "ON" ] ; then 
   makedepends+=('cuda')
   optdepends+=('libcudart.so: required for dense reconstruction')
@@ -52,6 +52,8 @@ build() {
       _CMAKE_FLAGS+=( -DCUDA_ENABLED=ON
                       -DCUDA_TOOLKIT_ROOT_DIR=/opt/cuda
                       -DCMAKE_CUDA_ARCHITECTURES="$_CUDA_ARCH"
+                      -DCMAKE_C_COMPILER=gcc-14
+                      -DCMAKE_CXX_COMPILER=g++-14
                     )
     else
       _CMAKE_FLAGS+=( -DCUDA_ENABLED=OFF )

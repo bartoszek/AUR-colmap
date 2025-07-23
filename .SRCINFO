@@ -6,6 +6,7 @@ pkgbase = colmap
 	arch = i686
 	arch = x86_64
 	license = GPL
+	makedepends = gcc14
 	makedepends = boost
 	makedepends = cmake
 	makedepends = eigen
