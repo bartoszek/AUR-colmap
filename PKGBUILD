@@ -4,16 +4,17 @@
 check_option "debug" "y" && BUILD_TYPE=Debug || BUID_TYPE=Release
 
 ## Configuration env vars:
+_ver=3.12.5
 _BUILD_CUDA="${BUILD_CUDA:-ON}"
 _CUDA_ARCH="${CUDA_ARCH:-native}"
-_fragment=${FRAGMENT:-#tag=3.12.3}
+_fragment=${FRAGMENT:-#tag=$_ver}
 # Use CMAKE_FLAGS=xxx:yyy:zzz to define extra CMake flags
 [[ -v CMAKE_FLAGS ]] && mapfile -t -d: _CMAKE_FLAGS < <(echo -n "$CMAKE_FLAGS")
 
 _name=colmap
 #fragment="#commit=5bea89263bf5f3ed623b8e6e6a5f022a0ed9c1de"
 pkgname=${_name}
-pkgver=3.12.3
+pkgver=$_ver
 pkgrel=1
 pkgdesc="General-purpose Structure-from-Motion (SfM) and Multi-View Stereo (MVS) pipeline with a graphical and command-line interface."
 arch=('i686' 'x86_64')
@@ -31,7 +32,7 @@ source=("${pkgname}::git+https://github.com/colmap/colmap.git${_fragment}"
         "vocabulary-tree-256K.bin::https://demuc.de/colmap/vocab_tree_flickr100K_words256K.bin"
         "vocabulary-tree-1M.bin::https://demuc.de/colmap/vocab_tree_flickr100K_words1M.bin"
         )
-sha256sums=('1e2d7a48b4ba27a2c21ae98c7ea3a9fbb5adc4c7b5a84df06d2e402477c7eb18'
+sha256sums=('2f48274a1932154d3e37a0285cbe68b7ec6d67b0d6cc4e71f62c5ce1ddd0ca04'
             'd37d8f19ee0a49705c4c0b06967a08cedfed5cf86519eada3271497256732bc2'
             'd2055600452a531b5b0a62aa5943e1a07195273dc4eeebcf23d3a924d881d53a'
             'fb60f7ba8081ee5c278f03c62329a374d1b24136b374a49393b453db1529a8c6')
