@@ -39,6 +39,7 @@ sha256sums=('2f48274a1932154d3e37a0285cbe68b7ec6d67b0d6cc4e71f62c5ce1ddd0ca04'
 
 prepare() {
   git -C "$pkgname" cherry-pick -n 71cebde85b5ce290c93f67326eea7c1b1c0cea97
+  sed -e '1 i\#include <cassert>' -i "${srcdir}"/${pkgname}/src/colmap/sfm/observation_manager.cc
 }
 
 
