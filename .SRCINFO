@@ -1,6 +1,6 @@
 pkgbase = colmap
 	pkgdesc = General-purpose Structure-from-Motion (SfM) and Multi-View Stereo (MVS) pipeline with a graphical and command-line interface.
-	pkgver = 3.12.5
+	pkgver = 3.12.6
 	pkgrel = 1
 	url = https://colmap.github.io/
 	arch = i686
@@ -8,7 +8,7 @@ pkgbase = colmap
 	license = GPL
 	makedepends = boost
 	makedepends = cmake
-	makedepends = eigen=3.4.0
+	makedepends = eigen
 	makedepends = git
 	makedepends = ninja
 	makedepends = python-sphinx
@@ -27,11 +27,11 @@ pkgbase = colmap
 	depends = metis
 	depends = flann
 	optdepends = libcudart.so: required for dense reconstruction
-	source = colmap::git+https://github.com/colmap/colmap.git#tag=3.12.5
+	source = colmap::git+https://github.com/colmap/colmap.git#tag=3.12.6
 	source = vocabulary-tree-32K.bin::https://demuc.de/colmap/vocab_tree_flickr100K_words32K.bin
 	source = vocabulary-tree-256K.bin::https://demuc.de/colmap/vocab_tree_flickr100K_words256K.bin
 	source = vocabulary-tree-1M.bin::https://demuc.de/colmap/vocab_tree_flickr100K_words1M.bin
-	sha256sums = 2f48274a1932154d3e37a0285cbe68b7ec6d67b0d6cc4e71f62c5ce1ddd0ca04
+	sha256sums = a8de78e0953906a0f0f1b8df281168e826788263097e8d9f659215234fceec18
 	sha256sums = d37d8f19ee0a49705c4c0b06967a08cedfed5cf86519eada3271497256732bc2
 	sha256sums = d2055600452a531b5b0a62aa5943e1a07195273dc4eeebcf23d3a924d881d53a
 	sha256sums = fb60f7ba8081ee5c278f03c62329a374d1b24136b374a49393b453db1529a8c6
