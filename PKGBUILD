@@ -4,10 +4,12 @@
 check_option "debug" "y" && BUILD_TYPE=Debug || BUID_TYPE=Release
 
 ## Configuration env vars:
+: "${DISABLE_FREEIMAGE:=0}"
 _ver=3.12.6
 _BUILD_CUDA="${BUILD_CUDA:-ON}"
 _CUDA_ARCH="${CUDA_ARCH:-native}"
 _fragment=${FRAGMENT:-#tag=$_ver}
+((DISABLE_FREEIMAGE)) && _fragment=${FRAGMENT:-#branch=user/jsch/openimageio}
 # Use CMAKE_FLAGS=xxx:yyy:zzz to define extra CMake flags
 [[ -v CMAKE_FLAGS ]] && mapfile -t -d: _CMAKE_FLAGS < <(echo -n "$CMAKE_FLAGS")
 
@@ -21,7 +23,8 @@ arch=('i686' 'x86_64')
 url="https://colmap.github.io/"
 license=('BSD-3-Clause')
 groups=()
-depends=('cgal' 'ceres-solver' 'gflags' 'suitesparse' 'freeglut' 'glew' 'google-glog' 'freeimage' 'libjpeg' 'boost-libs' 'qt5-base' 'metis' 'flann')
+depends=('cgal' 'ceres-solver' 'gflags' 'suitesparse' 'freeglut' 'glew' 'google-glog' 'libjpeg' 'boost-libs' 'qt5-base' 'metis' 'flann')
+(( ! DISABLE_FREEIMAGE )) && depends+=('freeimage') || depends+=('openimageio')
 makedepends=('boost' 'cmake' 'eigen' 'git' 'ninja' 'python-sphinx')
 if [ "$_BUILD_CUDA" == "ON" ] ; then 
   makedepends+=('cuda')
@@ -36,6 +39,7 @@ sha256sums=('a8de78e0953906a0f0f1b8df281168e826788263097e8d9f659215234fceec18'
             'd37d8f19ee0a49705c4c0b06967a08cedfed5cf86519eada3271497256732bc2'
             'd2055600452a531b5b0a62aa5943e1a07195273dc4eeebcf23d3a924d881d53a'
             'fb60f7ba8081ee5c278f03c62329a374d1b24136b374a49393b453db1529a8c6')
+(( DISABLE_FREEIMAGE )) && sha256sums[0]='SKIP'
 
 prepare() {
   sed -e '1 i\#include <cassert>' -i "${srcdir}"/${pkgname}/src/colmap/sfm/observation_manager.cc
