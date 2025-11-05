@@ -19,7 +19,7 @@ pkgrel=1
 pkgdesc="General-purpose Structure-from-Motion (SfM) and Multi-View Stereo (MVS) pipeline with a graphical and command-line interface."
 arch=('i686' 'x86_64')
 url="https://colmap.github.io/"
-license=('GPL')
+license=('BSD-3-Clause')
 groups=()
 depends=('cgal' 'ceres-solver' 'gflags' 'suitesparse' 'freeglut' 'glew' 'google-glog' 'freeimage' 'libjpeg' 'boost-libs' 'qt5-base' 'metis' 'flann')
 makedepends=('boost' 'cmake' 'eigen' 'git' 'ninja' 'python-sphinx')
@@ -79,5 +79,8 @@ package() {
   for vocab_tree in "${srcdir}"/vocabulary-tree-*.bin ; do
     install -m644 "${vocab_tree}" "${pkgdir}/usr/share/${_name}/${vocab_tree##*/}"
   done
+
+  # install license
+  install -Dm644 "${srcdir}/${pkgname}/COPYING.txt" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
 }
 # vim:set ts=2 sw=2 et:
