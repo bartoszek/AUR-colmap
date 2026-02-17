@@ -5,7 +5,7 @@ check_option "debug" "y" && BUILD_TYPE=Debug || BUID_TYPE=Release
 
 ## Configuration env vars:
 : "${DISABLE_FREEIMAGE:=0}"
-_ver=3.12.6
+_ver=3.13.0
 _BUILD_CUDA="${BUILD_CUDA:-ON}"
 _CUDA_ARCH="${CUDA_ARCH:-native}"
 _fragment=${FRAGMENT:-#tag=$_ver}
@@ -35,7 +35,7 @@ source=("${pkgname}::git+https://github.com/colmap/colmap.git${_fragment}"
         "vocabulary-tree-256K.bin::https://demuc.de/colmap/vocab_tree_flickr100K_words256K.bin"
         "vocabulary-tree-1M.bin::https://demuc.de/colmap/vocab_tree_flickr100K_words1M.bin"
         )
-sha256sums=('a8de78e0953906a0f0f1b8df281168e826788263097e8d9f659215234fceec18'
+sha256sums=('1ffec2ea3c88a7a9cceebf88f8d8214aad3378ef434e911423c12c3529832d60'
             'd37d8f19ee0a49705c4c0b06967a08cedfed5cf86519eada3271497256732bc2'
             'd2055600452a531b5b0a62aa5943e1a07195273dc4eeebcf23d3a924d881d53a'
             'fb60f7ba8081ee5c278f03c62329a374d1b24136b374a49393b453db1529a8c6')
