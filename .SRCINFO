@@ -16,6 +16,7 @@ pkgbase = colmap
 	depends = cgal
 	depends = ceres-solver
 	depends = gflags
+	depends = openimageio
 	depends = suitesparse
 	depends = freeglut
 	depends = glew
@@ -25,7 +26,6 @@ pkgbase = colmap
 	depends = qt5-base
 	depends = metis
 	depends = flann
-	depends = freeimage
 	optdepends = libcudart.so: required for dense reconstruction
 	source = colmap::git+https://github.com/colmap/colmap.git#tag=3.13.0
 	source = vocabulary-tree-32K.bin::https://demuc.de/colmap/vocab_tree_flickr100K_words32K.bin
