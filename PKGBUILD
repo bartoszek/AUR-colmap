@@ -21,7 +21,7 @@ pkgrel=1
 pkgdesc="General-purpose Structure-from-Motion (SfM) and Multi-View Stereo (MVS) pipeline with a graphical and command-line interface."
 arch=('i686' 'x86_64')
 url="https://colmap.github.io/"
-license=('BSD-3-Clause')
+license=('GPL')
 groups=()
 depends=('cgal' 'ceres-solver' 'gflags' 'suitesparse' 'freeglut' 'glew' 'google-glog' 'libjpeg' 'boost-libs' 'qt5-base' 'metis' 'flann')
 (( ! DISABLE_FREEIMAGE )) && depends+=('freeimage') || depends+=('openimageio')
